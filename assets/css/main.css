@@ -1,0 +1,68 @@
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --panel2: #1c2128;
+  --border: #21262d;
+  --border-input: #30363d;
+  --text: #c9d1d9;
+  --heading: #e6edf3;
+  --muted: #8b949e;
+  --green: #7ee787;
+  --green-fill: #238636;
+  --blue: #79c0ff;
+  /* One horizontal gutter for the whole site — shrinks to 20px on a phone. */
+  --gutter: clamp(20px, 5vw, 80px);
+}
+* { box-sizing: border-box; }
+html, body, #__nuxt { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+body { font-family: 'JetBrains Mono', monospace; -webkit-text-size-adjust: 100%; }
+img, svg { max-width: 100%; }
+a { color: var(--text); text-decoration: none; }
+a:hover { color: var(--green); }
+h1, h2, h3, p { margin: 0; }
+
+.page { max-width: 1440px; margin: 0 auto; }
+.nav {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px 24px; flex-wrap: wrap;
+  padding: clamp(20px, 4vw, 36px) var(--gutter); border-bottom: 1px solid var(--border);
+}
+.nav-brand { font-size: 19px; color: var(--green); }
+.nav-brand span { opacity: .5; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 12px clamp(16px, 3vw, 36px); font-size: 15px; color: var(--muted); }
+.nav-links a.active { color: var(--heading); }
+
+.btn {
+  display: inline-block; padding: 16px clamp(20px, 4vw, 30px); border-radius: 6px;
+  font-size: 16px; font-weight: 600; cursor: pointer; border: none;
+  font-family: inherit; text-align: center;
+}
+.btn-primary { background: var(--green-fill); color: #fff; }
+.btn-outline { background: transparent; border: 1px solid var(--border-input); color: var(--text); }
+
+.card {
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: clamp(20px, 4vw, 28px); background: var(--panel);
+}
+.thumb {
+  width: 100%; height: clamp(150px, 28vw, 220px); border-radius: 6px; margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--muted);
+  background: repeating-linear-gradient(45deg, var(--panel) 0 10px, var(--panel2) 10px 20px);
+}
+.tag {
+  font-size: 12px; padding: 5px 10px; background: var(--panel2); border-radius: 4px; color: var(--blue);
+}
+.section-label { font-size: 15px; color: var(--green); margin-bottom: 24px; }
+
+/* Shared page rhythm. Pages set their own top/bottom space; the gutter is global. */
+/* Stacks on phones, keeps the original two-up layout from tablet upward. */
+.grid-auto { display: grid; grid-template-columns: 1fr; gap: 28px; }
+@media (min-width: 760px) { .grid-auto { grid-template-columns: 1fr 1fr; } }
+.h-hero { font-size: clamp(34px, 6.4vw, 64px); }
+.h-page { font-size: clamp(30px, 5.4vw, 48px); }
+
+@media (max-width: 640px) {
+  .nav-links { font-size: 14px; }
+  .btn { width: 100%; }
+}

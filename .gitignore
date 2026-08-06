@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# Nuxt build artefacts
+.nuxt
+.output
+.data
+.nitro
+.cache
+dist
+
+# Local env — NUXT_PUBLIC_FORMSPREE_ID lives here, see .env.example
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+.idea
+*.swp
