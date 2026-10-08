@@ -5,6 +5,11 @@ const { data: posts } = await useAsyncData('blog-index', () =>
     .order('date', 'DESC')
     .all()
 )
+
+useSeo({
+  title: 'Blog',
+  description: 'Notes on frontend engineering — render performance, design systems, testing, and building for keyboard-first users.'
+})
 </script>
 
 <template>

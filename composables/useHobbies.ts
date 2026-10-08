@@ -5,7 +5,7 @@ export type Hobby = {
   tags: string[]
   desc: string
   /** Key into the icon set in pages/hobbies.vue */
-  icon: 'chess' | 'cycling' | 'flying' | 'hiking' | 'traveling'
+  icon: 'chess' | 'cycling' | 'aviation' | 'space' | 'hiking' | 'traveling'
 }
 
 export function useHobbies(): Hobby[] {
@@ -25,11 +25,18 @@ export function useHobbies(): Hobby[] {
       icon: 'cycling'
     },
     {
-      slug: 'flying',
-      name: 'Flying',
-      tags: ['general aviation', 'navigation'],
-      desc: 'Drawn to general aviation — checklists, radio discipline, and the habit of planning carefully for the thing that probably will not happen.',
-      icon: 'flying'
+      slug: 'aviation',
+      name: 'Aviation',
+      tags: ['atc', 'airframes'],
+      desc: 'The wider world around the cockpit — airframe design, ATC procedure, and how a schedule holds up against weather. Accident reports have taught me more about failure modes than most engineering writing.',
+      icon: 'aviation'
+    },
+    {
+      slug: 'space',
+      name: 'Space',
+      tags: ['launches', 'orbital mechanics'],
+      desc: 'Launch windows, orbital mechanics, and the part of a mission that starts once the rocket is out of frame. Most of what makes it work is redundancy planned years before anyone counts down.',
+      icon: 'space'
     },
     {
       slug: 'hiking',

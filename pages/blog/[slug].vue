@@ -9,12 +9,10 @@ if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 }
 
-useSeoMeta({
-  title: `${post.value.title} — Bolaji Daniels Ilori`,
+useSeo({
+  title: post.value.title,
   description: post.value.description,
-  ogTitle: post.value.title,
-  ogDescription: post.value.description,
-  ogType: 'article'
+  type: 'article'
 })
 </script>
 
