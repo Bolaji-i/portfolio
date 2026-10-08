@@ -1,10 +1,15 @@
 <script setup lang="ts">
 const projects = [
   { name: 'design-system.tsx', desc: 'Reusable component library — cut UI dev time 30% across teams', tags: ['React', 'TypeScript', 'GraphQL'] },
-  { name: 'test-coverage.spec.ts', desc: 'Scaled automated coverage from 50% to 80%', tags: ['Playwright', 'Vitest'] },
-  { name: 'core-web-vitals.ts', desc: 'Code-splitting & lazy loading — cut load times 25%', tags: ['Performance', 'Core Web Vitals'] },
+  { name: 'test-coverage.spec.ts', desc: 'Scaled automated test coverage by more than 50%', tags: ['Playwright', 'Vitest'] },
+  { name: 'core-web-vitals.ts', desc: 'Code splitting, lazy loading & render optimization — improved page load times considerably', tags: ['Performance', 'Core Web Vitals'] },
   { name: 'legacy-vue-migration', desc: 'Refactored & modernized a legacy Vue.js codebase', tags: ['Vue.js', 'Refactor'] }
 ]
+
+useSeo({
+  title: 'Work',
+  description: 'Selected engineering work — a component library that cut UI dev time 30%, automated test coverage raised by more than 50%, and Core Web Vitals work that cut page load times considerably.'
+})
 </script>
 
 <template>
