@@ -1,11 +1,16 @@
 <script setup lang="ts">
-const EMAIL = 'bolajidaniels.ilori@gmail.com'
+const EMAIL = CONTACT_EMAIL
 
 const form = reactive({ name: '', email: '', message: '', website: '' })
 const status = ref<'idle' | 'sending' | 'sent' | 'error'>('idle')
 const error = ref('')
 
 const formspreeId = useRuntimeConfig().public.formspreeId
+
+useSeo({
+  title: 'Contact',
+  description: 'Open to software and cloud engineering roles in Munich or remote, available immediately. Get in touch by email or LinkedIn.'
+})
 
 async function onSubmit() {
   if (status.value === 'sending') return
@@ -51,7 +56,7 @@ async function onSubmit() {
     <div class="section-label">$ ./send-message.sh</div>
     <h1 style="font-size:clamp(30px,5.4vw,44px);font-weight:700;color:var(--heading);margin-bottom:16px">Get in touch</h1>
     <p style="font-size:clamp(15px,2vw,17px);color:var(--muted);margin-bottom:48px">
-      Open to frontend engineering roles in Munich or remote — available on one month's notice.
+      Open to software and cloud engineering roles in Munich or remote — available immediately.
     </p>
 
     <form v-if="status !== 'sent'" style="display:flex;flex-direction:column;gap:20px" @submit.prevent="onSubmit">
@@ -89,11 +94,9 @@ async function onSubmit() {
     </form>
     <p v-else role="status" style="font-size:17px;color:var(--green)">Thanks — message sent. I'll reply within a couple of days.</p>
 
-    <div style="display:flex;flex-wrap:wrap;gap:14px 24px;margin-top:56px;font-size:15px;color:var(--muted);word-break:break-word">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px;margin-top:56px;font-size:15px;color:var(--muted);word-break:break-word">
       <a :href="`mailto:${EMAIL}`">{{ EMAIL }}</a>
-      <a href="https://linkedin.com/in/bolaji-daniels-ilori" target="_blank">LinkedIn</a>
-      <a href="#" target="_blank">GitHub</a>
-      <a href="#" target="_blank">X</a>
+      <SocialLinks />
     </div>
   </div>
 </template>
