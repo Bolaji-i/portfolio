@@ -12,7 +12,10 @@ const links = [
 <template>
   <div class="page">
     <nav class="nav">
-      <NuxtLink to="/" class="nav-brand">bolaji@ilori<span>:~$</span></NuxtLink>
+      <NuxtLink to="/" class="nav-brand">
+        <LogoMark :size="26" />
+        <span class="brand-text">bolaji@ilori<span class="dim">:~$</span></span>
+      </NuxtLink>
       <div class="nav-links">
         <NuxtLink
           v-for="link in links"

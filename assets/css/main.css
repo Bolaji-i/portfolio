@@ -27,8 +27,10 @@ h1, h2, h3, p { margin: 0; }
   gap: 16px 24px; flex-wrap: wrap;
   padding: clamp(20px, 4vw, 36px) var(--gutter); border-bottom: 1px solid var(--border);
 }
-.nav-brand { font-size: 19px; color: var(--green); }
-.nav-brand span { opacity: .5; }
+/* Logo + wordmark sit as two flex items; the wordmark stays one item so the gap
+   lands between mark and text, not inside "bolaji@ilori:~$". */
+.nav-brand { display: flex; align-items: center; gap: 10px; font-size: 19px; color: var(--green); }
+.nav-brand .dim { opacity: .5; }
 .nav-links { display: flex; flex-wrap: wrap; gap: 12px clamp(16px, 3vw, 36px); font-size: 15px; color: var(--muted); }
 .nav-links a.active { color: var(--heading); }
 
