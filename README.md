@@ -10,7 +10,34 @@ npm run dev
 Open http://localhost:3000
 
 ## Deploy
-`npm run generate` produces a static build (`.output/public`) deployable to Vercel, Netlify, Cloudflare Pages, or GitHub Pages. Or `npm run build` + `npm run start` for a Node server target.
+`npm run generate` produces a static build in `.output/public`. Target is **Cloudflare Pages**.
+
+### Cloudflare Pages settings
+Connect the GitHub repo, then set:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | None |
+| Build command | `npm run generate` |
+| Build output directory | `.output/public` |
+| Node version | 20 or later (`NODE_VERSION` env var) |
+
+Two environment variables, both under **Settings → Environment variables**:
+
+- `NUXT_PUBLIC_SITE_URL` — the public origin, no trailing slash (e.g. `https://bolajiilori.com`).
+  Set it on **Production only**. `scripts/postbuild.mjs` uses it to write `sitemap.xml` and
+  `robots.txt`; leaving it unset on Preview means preview deploys don't publish a sitemap
+  pointing at the live domain.
+- `NUXT_PUBLIC_FORMSPREE_ID` — needed on both environments or the contact form silently no-ops.
+
+### Custom domain
+If the domain is registered with Cloudflare, **Pages → Custom domains → Set up a domain** does the
+DNS itself and issues the certificate; there are no nameservers to point. Add both the apex and
+`www`, then set one to redirect to the other so a single canonical host is indexed. Certificates
+take a few minutes to go live.
+
+`public/_headers` is read by Pages at the site root and sets the cache and security headers —
+it needs no dashboard configuration.
 
 ## Structure
 - `layouts/default.vue` — shared nav
@@ -80,6 +107,5 @@ A hidden `_gotcha` honeypot field handles basic spam bots.
 - Real project screenshots (currently striped placeholders)
 - Personalised hobby blurbs in `composables/useHobbies.ts` (mine are generic placeholders)
 - Real URLs for the `href="#"` GitHub/X links in `pages/index.vue` and `pages/contact.vue`
-- A favicon and an OG share image (`public/`)
+- An OG share image (`public/`) — the logo in `components/LogoMark.vue` is a good starting point
 - Real blog post bodies (`content/blog/*.md` — remove each `::draft-notice` block once rewritten)
-- The actual resume PDF linked from the "Download PDF" button
