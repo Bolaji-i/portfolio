@@ -1,0 +1,6 @@
+{
+  // Nuxt generates the real config (auto-import types, path aliases, Vue settings)
+  // into .nuxt/tsconfig.json on `nuxt dev` / `nuxt build` / `nuxt prepare`.
+  // This file only exists so the editor's TypeScript server finds it.
+  "extends": "./.nuxt/tsconfig.json"
+}
